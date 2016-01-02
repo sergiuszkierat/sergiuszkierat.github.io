@@ -5,3 +5,8 @@ rvm:
 
 script:
   - bundle exec jekyll build
+
+# whitelist
+branches:
+  only:
+    - source
