@@ -1,1 +1,0 @@
-# runit.space <a href="https://travis-ci.org/sergiuszkierat/sergiuszkierat.github.io"><img src="https://api.travis-ci.org/sergiuszkierat/sergiuszkierat.github.io.svg?branch=source" alt="Build status" /></a>
