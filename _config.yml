@@ -21,4 +21,5 @@ markdown: kramdown
 
 #Other
 timezone: Europe/Warsaw
+include: [ 'CNAME' ]
 exclude: [ 'README.md', 'Gemfile' ]
