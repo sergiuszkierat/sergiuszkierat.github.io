@@ -18,3 +18,7 @@ github_username:  sergiuszkierat
 
 # Build settings
 markdown: kramdown
+
+#Other
+timezone: Europe/Warsaw
+exclude: [ 'README.md', 'Gemfile' ]
