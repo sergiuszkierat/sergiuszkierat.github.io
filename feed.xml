@@ -4,10 +4,10 @@
     <title>Thoughts on making software better</title>
     <description>I’m Sergiusz Kierat, a software developer from Warsaw, Poland. I am working as a scala developer at javeo.eu.
 </description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 Jan 2016 23:01:18 +0100</pubDate>
-    <lastBuildDate>Sun, 03 Jan 2016 23:01:18 +0100</lastBuildDate>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 03 Jan 2016 23:15:06 +0100</pubDate>
+    <lastBuildDate>Sun, 03 Jan 2016 23:15:06 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -28,8 +28,8 @@
 
 </description>
         <pubDate>Mon, 28 Dec 2015 09:05:15 +0100</pubDate>
-        <link>/jekyll/update/2015/12/28/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">/jekyll/update/2015/12/28/welcome-to-jekyll.html</guid>
+        <link>http://yourdomain.com/jekyll/update/2015/12/28/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2015/12/28/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
