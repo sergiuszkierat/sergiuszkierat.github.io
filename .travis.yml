@@ -3,24 +3,15 @@ language: ruby
 rvm:
   - 2.1
 
-branches:
-  only:
-    - source
-
-before_install:
-  - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - echo -e "$GITHUB_PRIVATE_KEY" > ~/.ssh/travis_rsa
-  - chmod 600 ~/.ssh/travis_rsa
-  - eval `ssh-agent -s`
-  - ssh-add ~/.ssh/travis_rsa
-  - git config user.email "build@travisci.org"
-  - git config user.email "Travis CI"
-
 script:
   - bundle exec jekyll build
   - bundle exec htmlproof ./_site --only-4xx --check-html --disable-external --allow-hash-href
-  - bundle exec octopress deploy
 
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+# whitelist
+branches:
+  only:
+    - source
