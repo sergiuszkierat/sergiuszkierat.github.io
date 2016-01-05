@@ -10,7 +10,6 @@ before_script:
 script:
   - bundle exec jekyll build
   - bundle exec htmlproof ./_site --only-4xx --check-html --disable-external --allow-hash-href
-  #- bundle exec octopress deploy
 
 after_success:
   - ./deploy.sh
@@ -18,9 +17,9 @@ after_success:
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-    - GH_TOKEN: JFLKSDJAKLJDKLFJSD
+    - GH_REF: github.com/sergiuszkierat/sergiuszkierat.github.io
+    - GH_TOKEN: 3c9b8514069449082a1c447e006d05d7fae90ca9
 
-# whitelist
 branches:
   only:
     - source
