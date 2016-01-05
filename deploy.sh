@@ -5,5 +5,4 @@ echo "GH_TOKEN : ${GH_TOKEN}"
 echo "? :" `env | grep GH_TOKEN`
 
 echo 'Octopress...'
-octopress --help
-#octopress deploy
+octopress deploy
