@@ -29,3 +29,5 @@ disqus:
   shortname: runitspace                            # Your site's disqus identifier
   comments_link_text: Comments                     # Text label for comments link
   comments_disabled_link_text: Comments disabled   # Set to '' to not output a comments link when disabled
+
+google_analytics_tracking_id: UA-71958613-1
