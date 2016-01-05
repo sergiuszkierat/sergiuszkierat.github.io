@@ -18,7 +18,7 @@ env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
     - GH_REF: github.com/sergiuszkierat/sergiuszkierat.github.io
-    - GH_TOKEN: 3c9b8514069449082a1c447e006d05d7fae90ca9
+    - GH_TOKEN: 127821a179a0615b9ed41108f4edb2de1c180068
 
 branches:
   only:
