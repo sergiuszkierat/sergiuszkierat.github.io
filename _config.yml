@@ -26,6 +26,6 @@ exclude: [ 'README.md', 'Gemfile' ]
 
 #https://github.com/octopress/social
 disqus:
-  shortname: sergiuszkierat                        # Your site's disqus identifier
+  shortname: runitspace                            # Your site's disqus identifier
   comments_link_text: Comments                     # Text label for comments link
   comments_disabled_link_text: Comments disabled   # Set to '' to not output a comments link when disabled
