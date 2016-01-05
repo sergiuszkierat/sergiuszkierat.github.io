@@ -1,7 +1,7 @@
 language: ruby
 
 rvm:
-  - 2.2.2
+  - 2.1
 
 before_script:
   - git config --global user.email "build@travisci.org"
@@ -18,7 +18,7 @@ env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
     - GH_REF: github.com/sergiuszkierat/sergiuszkierat.github.io
-    - GH_TOKEN: 127821a179a0615b9ed41108f4edb2de1c180068
+    - GH_TOKEN: 70a1c9f567728a077b7dbaac79902b56f6404cdd
 
 branches:
   only:
