@@ -13,7 +13,14 @@ script:
   #- bundle exec octopress deploy
 
 after_success:
-  - ./deploy.sh
+  - echo "We can put normal shell commands here"
+  - echo "more shell commands here"
+  - echo "${GH_TOKEN}"
+  - echo "? :" `env | grep GH_TOKEN`
+
+  - echo 'Octopress...'
+  - octopress --help
+
 
 env:
   global:
