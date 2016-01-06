@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Thoughts on making software better</title>
+    <title>Thoughts on making software not worse, &lt;small&gt;&lt;small&gt;even better&lt;/small&gt;&lt;/small&gt;</title>
     <description>I’m Sergiusz Kierat, a software developer from Warsaw, Poland. I am working as a scala developer at javeo.eu.
 </description>
     <link>http://runit.space/</link>
     <atom:link href="http://runit.space/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Jan 2016 15:20:39 +0100</pubDate>
-    <lastBuildDate>Wed, 06 Jan 2016 15:20:39 +0100</lastBuildDate>
+    <pubDate>Wed, 06 Jan 2016 20:53:38 +0100</pubDate>
+    <lastBuildDate>Wed, 06 Jan 2016 20:53:38 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
   </channel>
