@@ -19,7 +19,9 @@
           <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
           {% endif %}
         {% endfor %}
-	       <a class="page-link" href="https://github.com/sergiuszkierat/sergiuszkierat.github.io" target="_blank"><img src="/images/GitHub-Mark-32px.png" alt="Github"></a>
+        {% if site.github_source_url %}
+          <a class="page-link" href="https://github.com/sergiuszkierat/sergiuszkierat.github.io" target="_blank"><img src="/images/GitHub-Mark-32px.png" alt="Github"></a>
+        {% endif %}
      </div>
     </nav>
 

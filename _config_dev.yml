@@ -2,3 +2,5 @@ disqus:
   shortname:
 
 google_analytics_tracking_id:
+
+github_source_url: true
