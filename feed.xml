@@ -6,9 +6,92 @@
 </description>
     <link>http://runit.space/</link>
     <atom:link href="http://runit.space/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Jan 2016 21:20:19 +0100</pubDate>
-    <lastBuildDate>Wed, 06 Jan 2016 21:20:19 +0100</lastBuildDate>
+    <pubDate>Wed, 06 Jan 2016 23:25:11 +0100</pubDate>
+    <lastBuildDate>Wed, 06 Jan 2016 23:25:11 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Octopress 3: Continuous Deployment With Travis Ci</title>
+        <description>&lt;p&gt;&lt;em&gt;Inspired by &lt;a href=&quot;http://blog.goofansu.com/2015/06/25/test-travis.html&quot;&gt;Write in Octopress 3.0 and publish posts via travis-ci&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;You could use &lt;code class=&quot;highlighter-rouge&quot;&gt;GITHUB_TOKEN&lt;/code&gt; in a safe way. Travis gives you this possibility through &lt;a href=&quot;https://docs.travis-ci.com/user/encryption-keys/&quot;&gt;encryption keys&lt;/a&gt; feature.&lt;/p&gt;
+
+&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/octopress/octopress&quot;&gt;Octopress 3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;encrypted-credentials&quot;&gt;Encrypted credentials&lt;/h1&gt;
+&lt;p&gt;We will generate a GitHub’s &lt;a href=&quot;https://github.com/settings/tokens&quot;&gt;personal access token&lt;/a&gt; and we will encrypt it.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Generate a token by:
+    &lt;ul&gt;
+      &lt;li&gt;Go to &lt;a href=&quot;https://github.com/settings/tokens&quot;&gt;Tokens&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;Generate new token&lt;/code&gt; button&lt;/li&gt;
+      &lt;li&gt;Write a descriptive &lt;code class=&quot;highlighter-rouge&quot;&gt;Token description&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Select only &lt;code class=&quot;highlighter-rouge&quot;&gt;public_repo&lt;/code&gt; scope&lt;/li&gt;
+      &lt;li&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;Generate token&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Copy the token to your clipboard&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/travis.rb#installation&quot;&gt;Install the Travis client&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Encrypt generated token&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;travis encrypt &lt;span class=&quot;nv&quot;&gt;GH_TOKEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;secret token here&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Put encrypted token into your &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt; and verify it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;travis lint .travis.yml
+&lt;span class=&quot;c&quot;&gt;#=&amp;gt; prints &#39;Hooray, .travis.yml looks valid :)&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;.travis.yml&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;s&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruby&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;s&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2.1&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;s&quot;&gt;before_script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;7&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git config --global user.email &quot;noreply@travis-ci.org&quot;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;8&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git config --global user.name &quot;Travis CI&quot;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;9&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;10&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;s&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;11&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll build&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;12&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec htmlproof ./_site --only-4xx --check-html --disable-external --allow-hash-href&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;14&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;s&quot;&gt;after_success&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;15&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./deploy.sh&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;16&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;17&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;s&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;18&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;s&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;19&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;NOKOGIRI_USE_SYSTEM_LIBRARIES=true&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;20&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;GH_REF=github.com/sergiuszkierat/sergiuszkierat.github.io&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;21&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;secure=qgIjKsyNwqe5bilvVOnrTQGV5GEAKIt34eaYtHiEyWD6iuu1hw4AZPzakmLKvk0rFEFIXdo5Cq/TO2d/0m+hX6odSDTbmWoCdRLnLYXitPXXAI+pQsgsxcuCEwLyIY/6bMPjJthRySuoQeVF+RbFE92u0P6qNCVqugFH5voPOnoo0EZtAyKRNyZimuXITSmy19irtje+TXiKC4jZg82hMjZDAzPZ8Sh/zWJv/iuqxOI3B5ThSidGGJA54iiJVn1yPagWPdwQ4IBGonVHY2f5ZV8/7SEhfWxvOrQeCIt/r1oJKWIOhAQP7y5ilHz7FLkwQYysCuksOPzMzgDlf5fcWUqsdPxyxrqUQJ9Dmfl2Tr1aTDM2BR+KE6w4Y1qrM5ZhhruuzLfztqLEBfHMCcDHRWtp3a9l9i+h3uS27hu5KZyWKyrxGchatpDIN/C3e98xlVkV5YP3e4EIe1Ij2/02RGFMLunkjIYaVRZnrDAiFtnnBqLXcCb+UGSlFWN5WtPoBbwin1Ih1ZiO/ZqSDTYxurzsToaLH5v3Z73pSbKm7Qzo9XiulPhti5qzx0aTkvZi69o3KyVcK6a8p0mpPKBNqpDCK9UjpjMpHQ7K/WL1ze6M9w74nUEiMFp4rygJDPAeoKuf0CJ0dX6DIKGLKN5HBfa3gnL1ILx3pqKEXk88pGI=&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;22&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;23&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;s&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;24&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;s&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;25&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;source&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;deploying-site&quot;&gt;Deploying site&lt;/h1&gt;
+&lt;p&gt;To deploy my Octopress blog, I use a &lt;a href=&quot;https://github.com/octopress/octopress#deploying-your-site&quot;&gt;deploy&lt;/a&gt; subcommand and generate &lt;code class=&quot;highlighter-rouge&quot;&gt;_deploy.yml&lt;/code&gt; on the fly.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;deploy.sh&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -e &lt;span class=&quot;c&quot;&gt;# exit with nonzero exit code if anything fails&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Creating _deploy.xml...&#39;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;method: git&quot;&lt;/span&gt; &amp;gt; _deploy.yml
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;git_url: https://&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$&amp;#x7b;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GH_TOKEN&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;&amp;#x7d;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$&amp;#x7b;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GH_REF&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;&amp;#x7d;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &amp;gt;&amp;gt; _deploy.yml
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;7&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;8&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Deploying through octopress...&#39;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;9&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;octopress deploy &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;10&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Done&#39;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;This post is published securely via &lt;a href=&quot;https://travis-ci.org/sergiuszkierat/sergiuszkierat.github.io&quot;&gt;Travis CI&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 06 Jan 2016 23:13:27 +0100</pubDate>
+        <link>http://runit.space/2016/01/06/octopress-3-continuous-deployment-with-travis-ci.html</link>
+        <guid isPermaLink="true">http://runit.space/2016/01/06/octopress-3-continuous-deployment-with-travis-ci.html</guid>
+        
+        
+      </item>
     
   </channel>
 </rss>
