@@ -6,4 +6,5 @@ group :jekyll_plugins do
 	gem 'jekyll'
 	gem 'html-proofer'
 	gem 'octopress-social'
+	gem 'octopress-codefence'
 end
