@@ -6,34 +6,34 @@
 </description>
     <link>http://runit.space/</link>
     <atom:link href="http://runit.space/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 20:38:44 +0100</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 20:38:44 +0100</lastBuildDate>
+    <pubDate>Sat, 06 Feb 2016 21:15:25 +0100</pubDate>
+    <lastBuildDate>Sat, 06 Feb 2016 21:15:25 +0100</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
         <title>Add Two Factor Auth to your website via a TOTP mobile app</title>
         <description>&lt;h2 id=&quot;life-story&quot;&gt;Life story&lt;/h2&gt;
-&lt;p&gt;It was a middle of 2013. I met with my friend, Adam. Actually, we were sitting on the terrace, we were drinking some red wine
-and talking about life, our reminiscences and plans.
-All of a sudden, Adam said - listen - I would tell you a life story that happened to one of my friends.
-His friend, who lives in Poland as well, got a warning about suspicious activity on Gmail account made from China.
-He’s never been in China, thus obviously it was an hacker’s attack.&lt;/p&gt;
+&lt;p&gt;It was the middle of 2013. I met with my friend, Adam. Actually, we were sitting on the terrace; we were drinking some red wine
+and talking about life, reminisced and spoke about future plans.
+All of a sudden, Adam said, “listen! I will tell you a life story that happened to one of my friends”.
+His friend, who lives in Poland as well, got a warning about suspicious activity, which was made from China, on his Gmail account.
+He’s never been to China, thus obviously it was a hacker’s attack.&lt;/p&gt;
 
-&lt;p&gt;I thought - it could have been me.&lt;/p&gt;
+&lt;p&gt;I thought that it could have been me.&lt;/p&gt;
 
 &lt;h2 id=&quot;how-to-be-more-protected&quot;&gt;How to be more protected?&lt;/h2&gt;
-&lt;p&gt;After that, I made some research and I found out about &lt;a href=&quot;https://en.wikipedia.org/wiki/Two-factor_authentication&quot;&gt;2-Step Verification&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After that, I did some research and I found out about &lt;a href=&quot;https://en.wikipedia.org/wiki/Two-factor_authentication&quot;&gt;2-Step Verification&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Two-step verification (aka 2FA) adds an additional layer of security to the login process, requiring you to enter a special code, in addition to your regular username and password. The goal is to combine something you know (your password) with something only you would have access to (your &lt;a href=&quot;https://en.wikipedia.org/wiki/Security_token&quot;&gt;security token&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Two-step verification (aka 2FA) adds an additional layer of security to the login process, requiring you to enter a special code in addition to your regular username and password. The goal is to combine something you know (your password) with something only you would have access to  (your &lt;a href=&quot;https://en.wikipedia.org/wiki/Security_token&quot;&gt;security token&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;In order to be more protected, I encourage you to use 2FA. In a few fast steps I switched 2FA for Gmail account on.&lt;/p&gt;
+&lt;p&gt;In order to be more protected, I encourage you to use 2FA. In a few fast steps I switched on 2FA for Gmail account.&lt;/p&gt;
 
 &lt;blockquote class=&quot;twitter-tweet&quot; align=&quot;center&quot; width=&quot;350&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/hashtag/gmail?src=hash&quot;&gt;#gmail&lt;/a&gt; 2-step verification activated.&lt;/p&gt;&amp;mdash; Sergiusz Kierat (@kierat_s) &lt;a href=&quot;https://twitter.com/kierat_s/status/360071237692686337&quot;&gt;July 24, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;There is an awesome page &lt;a href=&quot;https://twofactorauth.org/&quot;&gt;TwoFactorAuth.org&lt;/a&gt; where you could find a comprehensive list of sites that support 2FA as well as the methods that they support it.&lt;/p&gt;
+&lt;p&gt;There is an awesome page &lt;a href=&quot;https://twofactorauth.org/&quot;&gt;TwoFactorAuth.org&lt;/a&gt; where you can find a comprehensive list of sites that support 2FA as well as the methods to support it.&lt;/p&gt;
 
-&lt;p&gt;You have to know, 2FA is sometimes cumbersome, especially if you lose your mobile. Nevertheless, it is worth to use it.&lt;/p&gt;
+&lt;p&gt;You have to know that 2FA is sometimes cumbersome, especially if you lose your mobile. Nevertheless, it is worth using it.&lt;/p&gt;
 
 &lt;h2 id=&quot;how-to-add-2fa-to-your-website&quot;&gt;How to add 2FA to your website?&lt;/h2&gt;
 
@@ -46,7 +46,7 @@ He’s never been in China, thus obviously it was an hacker’s attack.&lt;/p&gt
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;app---pure-and-simple&quot;&gt;App - pure and simple&lt;/h1&gt;
-&lt;p&gt;Under these circumstances, the creation of website is very straight forward.&lt;/p&gt;
+&lt;p&gt;Under these circumstances, the creation of your website is very straight forward.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;GET /configure&lt;/strong&gt;&lt;/li&gt;
@@ -117,7 +117,7 @@ and configure Google Authenticator with it.&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;17&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    )
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;18&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &amp;#x7d;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Lastly, we take a provided OTP and verify it.&lt;/p&gt;
+&lt;p&gt;Lastly, we take the provided OTP and verify it.&lt;/p&gt;
 
 &lt;p&gt;A working sample application is available on &lt;a href=&quot;https://github.com/sergiuszkierat/blog-2FA&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
