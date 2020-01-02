@@ -8,5 +8,5 @@ permalink: /about/
 * 🏃 runner
 * 🏞 mountain addicted
 * 💻 Scala enthusiast and software creator
-* 🌡sauna lover
+* 🌡 sauna lover
 * ❄️ big fan of cold water bathing
