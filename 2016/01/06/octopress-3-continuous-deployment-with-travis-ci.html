@@ -106,45 +106,45 @@
   <li>Encrypt generated token</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>travis encrypt <span class="nv">GH_TOKEN</span><span class="o">=</span>&lt;secret token here&gt;</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>travis encrypt <span class="nv">GH_TOKEN</span><span class="o">=</span>&lt;secret token here&gt;</code></pre></figure>
 
 <ul>
   <li>Put encrypted token into your <code class="highlighter-rouge">.travis.yml</code> and verify it</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>travis lint .travis.yml
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>travis lint .travis.yml
 <span class="c">#=&gt; prints 'Hooray, .travis.yml looks valid :)' to STDOUT.</span></code></pre></figure>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">.travis.yml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="s">language</span><span class="pi">:</span> <span class="s">ruby</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="s">rvm</span><span class="pi">:</span>
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">2.1</span>
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="s">before_script</span><span class="pi">:</span>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">.travis.yml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">language</span><span class="pi">:</span> <span class="s">ruby</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">rvm</span><span class="pi">:</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="m">2.1</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">before_script</span><span class="pi">:</span>
 </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">git config --global user.email "noreply@travis-ci.org"</span>
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">git config --global user.name "Travis CI"</span>
-</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="s">script</span><span class="pi">:</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">script</span><span class="pi">:</span>
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">bundle exec jekyll build</span>
 </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">bundle exec htmlproof ./_site --only-4xx --check-html --disable-external --allow-hash-href</span>
-</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="s">after_success</span><span class="pi">:</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">after_success</span><span class="pi">:</span>
 </div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">./deploy.sh</span>
-</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="s">env</span><span class="pi">:</span>
-</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="s">global</span><span class="pi">:</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">env</span><span class="pi">:</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">global</span><span class="pi">:</span>
 </div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">NOKOGIRI_USE_SYSTEM_LIBRARIES=true</span>
 </div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">GH_REF=github.com/sergiuszkierat/sergiuszkierat.github.io</span>
 </div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="pi">-</span> <span class="s">secure=qgIjKsyNwqe5bilvVOnrTQGV5GEAKIt34eaYtHiEyWD6iuu1hw4AZPzakmLKvk0rFEFIXdo5Cq/TO2d/0m+hX6odSDTbmWoCdRLnLYXitPXXAI+pQsgsxcuCEwLyIY/6bMPjJthRySuoQeVF+RbFE92u0P6qNCVqugFH5voPOnoo0EZtAyKRNyZimuXITSmy19irtje+TXiKC4jZg82hMjZDAzPZ8Sh/zWJv/iuqxOI3B5ThSidGGJA54iiJVn1yPagWPdwQ4IBGonVHY2f5ZV8/7SEhfWxvOrQeCIt/r1oJKWIOhAQP7y5ilHz7FLkwQYysCuksOPzMzgDlf5fcWUqsdPxyxrqUQJ9Dmfl2Tr1aTDM2BR+KE6w4Y1qrM5ZhhruuzLfztqLEBfHMCcDHRWtp3a9l9i+h3uS27hu5KZyWKyrxGchatpDIN/C3e98xlVkV5YP3e4EIe1Ij2/02RGFMLunkjIYaVRZnrDAiFtnnBqLXcCb+UGSlFWN5WtPoBbwin1Ih1ZiO/ZqSDTYxurzsToaLH5v3Z73pSbKm7Qzo9XiulPhti5qzx0aTkvZi69o3KyVcK6a8p0mpPKBNqpDCK9UjpjMpHQ7K/WL1ze6M9w74nUEiMFp4rygJDPAeoKuf0CJ0dX6DIKGLKN5HBfa3gnL1ILx3pqKEXk88pGI=</span>
-</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="s">branches</span><span class="pi">:</span>
-</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="s">only</span><span class="pi">:</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">branches</span><span class="pi">:</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">only</span><span class="pi">:</span>
 </div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="pi">-</span> <span class="s">source</span></div></div></pre></div></figure>
 
 <h1 id="deploying-site">Deploying site</h1>
 <p>To deploy my Octopress blog, I use a <a href="https://github.com/octopress/octopress#deploying-your-site">deploy</a> subcommand and generate <code class="highlighter-rouge">_deploy.yml</code> on the fly.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">deploy.sh</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">#!/bin/bash</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">set</span> -e <span class="c"># exit with nonzero exit code if anything fails</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">set</span> <span class="nt">-e</span> <span class="c"># exit with nonzero exit code if anything fails</span>
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s1">'Creating _deploy.xml...'</span>
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"method: git"</span> &gt; _deploy.yml
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"git_url: https://</span><span class="k">$&#x7b;</span><span class="nv">GH_TOKEN</span><span class="k">&#x7d;</span><span class="s2">@</span><span class="k">$&#x7b;</span><span class="nv">GH_REF</span><span class="k">&#x7d;</span><span class="s2">"</span> &gt;&gt; _deploy.yml
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"method: git"</span> <span class="o">&gt;</span> _deploy.yml
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"git_url: https://</span><span class="k">$&#x7b;</span><span class="nv">GH_TOKEN</span><span class="k">&#x7d;</span><span class="s2">@</span><span class="k">$&#x7b;</span><span class="nv">GH_REF</span><span class="k">&#x7d;</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> _deploy.yml
 </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s1">'Deploying through octopress...'</span>
-</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">octopress deploy &gt; /dev/null 2&gt;&amp;1
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">octopress deploy <span class="o">&gt;</span> /dev/null 2&gt;&amp;1
 </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s1">'Done'</span></div></div></pre></div></figure>
 
 <h1 id="summary">Summary</h1>
@@ -196,7 +196,7 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>I’m Sergiusz Kierat, a software developer from Warsaw, Poland. I am working as a scala developer at javeo.eu.
+        <p>I’m Sergiusz Kierat, a software developer from Warsaw, Poland.
 </p>
       </div>
     </div>

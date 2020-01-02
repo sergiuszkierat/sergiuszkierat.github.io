@@ -131,17 +131,17 @@ and configure Google Authenticator with it.</p>
 <span class="k">import</span> <span class="nn">org.jboss.aerogear.security.otp.api.Base32</span>
 
 <span class="k">object</span> <span class="nc">OneTimePassword</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">secret</span> <span class="k">=</span> <span class="nc">Base32</span><span class="o">.</span><span class="n">random</span>
+  <span class="k">def</span> <span class="nf">secret</span> <span class="k">=</span> <span class="nv">Base32</span><span class="o">.</span><span class="py">random</span>
 
-  <span class="k">def</span> <span class="n">verify</span><span class="o">(</span><span class="n">secret</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">otp</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
-    <span class="k">val</span> <span class="n">totp</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Totp</span><span class="o">(</span><span class="n">secret</span><span class="o">)</span>
-    <span class="n">totp</span><span class="o">.</span><span class="n">verify</span><span class="o">(</span><span class="n">otp</span><span class="o">)</span>
+  <span class="k">def</span> <span class="nf">verify</span><span class="o">(</span><span class="n">secret</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">otp</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">totp</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Totp</span><span class="o">(</span><span class="n">secret</span><span class="o">)</span>
+    <span class="nv">totp</span><span class="o">.</span><span class="py">verify</span><span class="o">(</span><span class="n">otp</span><span class="o">)</span>
   <span class="o">}</span>
 
-  <span class="k">def</span> <span class="n">uri</span><span class="o">(</span><span class="n">system</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">secret</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
-    <span class="k">val</span> <span class="n">totp</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Totp</span><span class="o">(</span><span class="n">secret</span><span class="o">)</span>
+  <span class="k">def</span> <span class="nf">uri</span><span class="o">(</span><span class="n">system</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">secret</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">totp</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Totp</span><span class="o">(</span><span class="n">secret</span><span class="o">)</span>
 
-    <span class="k">val</span> <span class="n">uriWithoutIssuer</span> <span class="k">=</span> <span class="n">totp</span><span class="o">.</span><span class="n">uri</span><span class="o">(</span><span class="n">s</span><span class="s">"$system:$name"</span><span class="o">)</span>
+    <span class="k">val</span> <span class="nv">uriWithoutIssuer</span> <span class="k">=</span> <span class="nv">totp</span><span class="o">.</span><span class="py">uri</span><span class="o">(</span><span class="n">s</span><span class="s">"$system:$name"</span><span class="o">)</span>
     <span class="n">s</span><span class="s">"$uriWithoutIssuer&amp;issuer=$system"</span>
   <span class="o">}</span>
 <span class="o">}</span></code></pre></figure>
@@ -231,7 +231,7 @@ and configure Google Authenticator with it.</p>
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>I’m Sergiusz Kierat, a software developer from Warsaw, Poland. I am working as a scala developer at javeo.eu.
+        <p>I’m Sergiusz Kierat, a software developer from Warsaw, Poland.
 </p>
       </div>
     </div>
