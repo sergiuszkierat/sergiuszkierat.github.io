@@ -1,25 +1,19 @@
 language: ruby
-
 rvm:
-  - 2.1
-
+- 2.1
 before_script:
-  - git config --global user.email "noreply@travis-ci.org"
-  - git config --global user.name "Travis CI"
-
+- git config --global user.email "noreply@travis-ci.org"
+- git config --global user.name "Travis CI"
 script:
-  - bundle exec jekyll build
-  - bundle exec htmlproof ./_site --only-4xx --check-html --disable-external --allow-hash-href
-
+- bundle exec jekyll build
+- bundle exec htmlproof ./_site --only-4xx --check-html --disable-external --allow-hash-href
 after_success:
-  - ./deploy.sh
-
+- "./deploy.sh"
 env:
   global:
-    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-    - GH_REF: github.com/sergiuszkierat/sergiuszkierat.github.io
-    - secure: qgIjKsyNwqe5bilvVOnrTQGV5GEAKIt34eaYtHiEyWD6iuu1hw4AZPzakmLKvk0rFEFIXdo5Cq/TO2d/0m+hX6odSDTbmWoCdRLnLYXitPXXAI+pQsgsxcuCEwLyIY/6bMPjJthRySuoQeVF+RbFE92u0P6qNCVqugFH5voPOnoo0EZtAyKRNyZimuXITSmy19irtje+TXiKC4jZg82hMjZDAzPZ8Sh/zWJv/iuqxOI3B5ThSidGGJA54iiJVn1yPagWPdwQ4IBGonVHY2f5ZV8/7SEhfWxvOrQeCIt/r1oJKWIOhAQP7y5ilHz7FLkwQYysCuksOPzMzgDlf5fcWUqsdPxyxrqUQJ9Dmfl2Tr1aTDM2BR+KE6w4Y1qrM5ZhhruuzLfztqLEBfHMCcDHRWtp3a9l9i+h3uS27hu5KZyWKyrxGchatpDIN/C3e98xlVkV5YP3e4EIe1Ij2/02RGFMLunkjIYaVRZnrDAiFtnnBqLXcCb+UGSlFWN5WtPoBbwin1Ih1ZiO/ZqSDTYxurzsToaLH5v3Z73pSbKm7Qzo9XiulPhti5qzx0aTkvZi69o3KyVcK6a8p0mpPKBNqpDCK9UjpjMpHQ7K/WL1ze6M9w74nUEiMFp4rygJDPAeoKuf0CJ0dX6DIKGLKN5HBfa3gnL1ILx3pqKEXk88pGI=
-
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - GH_REF: github.com/sergiuszkierat/sergiuszkierat.github.io
+  - secure: qdGp8MSo7FWq16eMVrzagkE2vIHTaEFca73USM8DGDs/kdSqoKEUeQdqhRCpv6xqT/FoY+FWnEt/zHY39wJwye4eeISXumfmH8JyABqeQYZPMB2hpYdyZr18wYCJ8/onn9J4l5T0ScTtFz28BNIe0OknpgOJImcsSx2Sv1JrVh8wbXH+C6ryH61ClycjG10qhT2yvEs25ontqWmDrxhbC8uRUmNA4MRecKwX+yssekL3EcC0xE9fdX4N1AuNF3S5JhPIKQhst+8MThIteoAiHsKelCOC+gTAxYmvu4I8lPaO69NU4DleAxjb4y7zRP4kwsVseLKG57ybm2lF8eeDOuYHsL2XZ5oEu+UvUbLvvg2XSbDD2BIJnrqLFojboJkOQZ0NTLJtjMHBOeoxLpvdtaH/lTAa9gKkVIhzkovWZoLnlSHmI4LePiJNa0otp37FP+JXRAyBl02lWMMYU/1MXdT/gqhTYeeR6m8LQ8MRDfGvju/F59eLgCWn3M/DmfYGYDYenVZNvmOpMS7jVv44GJ7h2A9uZvKjYKuisJ/xLQjaUP+oQ3Xt73AdGCgTS18r3lSauHtyEaEq01+svt3BrINaYHOoXmHYRmN5cSsigeuG//ivI5AP2cRvZX/V99uuN7UTn8R+moX91KtR4qQQgVPLzKPilYmkMZ7p6OL4es4=
 branches:
   only:
-    - source
+  - source
