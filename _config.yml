@@ -10,7 +10,6 @@ title: Thoughts on making software not worse, <small><small>even better</small><
 email: sergiusz.kierat@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   I’m Sergiusz Kierat, a software developer from Warsaw, Poland.
-  I am working as a scala developer at javeo.eu.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://runit.space" # the base hostname & protocol for your site
 twitter_username: kierat_s
